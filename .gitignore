@@ -9,3 +9,5 @@ publish
 /gh-pages
 *.backup
 /Artifacts
+/packages
+/.vs

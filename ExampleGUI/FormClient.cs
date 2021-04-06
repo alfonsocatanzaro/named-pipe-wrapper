@@ -53,7 +53,7 @@ namespace ExampleGUI
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxMessage.Text))
+            if (string.IsNullOrEmpty(textBoxMessage.Text))
                 return;
 
             _client.PushMessage(textBoxMessage.Text);

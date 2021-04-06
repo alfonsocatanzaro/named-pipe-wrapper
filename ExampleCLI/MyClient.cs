@@ -8,20 +8,24 @@ namespace ExampleCLI
 {
     class MyClient
     {
+        private readonly NamedPipeClient<MyMessage> client;
+
         private bool KeepRunning
         {
             get
             {
-                var key = Console.ReadKey();
-                if (key.Key == ConsoleKey.Q)
+                var line= Console.ReadLine();
+
+                if (line == "exit")
                     return false;
+                client.PushMessage(new MyMessage() { Text = line });
                 return true;
             }
         }
 
         public MyClient(string pipeName)
         {
-            var client = new NamedPipeClient<MyMessage>(pipeName);
+            client = new NamedPipeClient<MyMessage>(pipeName);
             client.ServerMessage += OnServerMessage;
             client.Error += OnError;
             client.Start();

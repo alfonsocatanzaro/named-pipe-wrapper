@@ -5,20 +5,24 @@ namespace ExampleCLI
 {
     class MyServer
     {
+
+        private readonly NamedPipeServer<MyMessage> server;
         private bool KeepRunning
         {
             get
             {
-                var key = Console.ReadKey();
-                if (key.Key == ConsoleKey.Q)
+                var line = Console.ReadLine();
+
+                if (line == "exit")
                     return false;
+                server.PushMessage(new MyMessage() { Text = line });
                 return true;
             }
         }
 
         public MyServer(string pipeName)
         {
-            var server = new NamedPipeServer<MyMessage>(pipeName);
+            server = new NamedPipeServer<MyMessage>(pipeName);
             server.ClientConnected += OnClientConnected;
             server.ClientDisconnected += OnClientDisconnected;
             server.ClientMessage += OnClientMessage;

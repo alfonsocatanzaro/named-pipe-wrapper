@@ -13,7 +13,7 @@ namespace ExampleGUI
     public partial class FormServer : Form
     {
         private readonly NamedPipeServer<string> _server = new NamedPipeServer<string>(Constants.PIPE_NAME);
-        private readonly ISet<string> _clients = new HashSet<string>();
+        private readonly HashSet<string> _clients = new HashSet<string>();
 
         public FormServer()
         {
@@ -68,7 +68,7 @@ namespace ExampleGUI
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxMessage.Text))
+            if (string.IsNullOrEmpty(textBoxMessage.Text))
                 return;
 
             _server.PushMessage(textBoxMessage.Text);
