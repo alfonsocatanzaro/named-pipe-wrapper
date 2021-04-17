@@ -1,4 +1,6 @@
-# Named Pipe Wrapper for .NET 4.0
+# Named Pipe Wrapper for .NET 3.5
+
+*** (This is a backporting of the Andrew C. Dvorak's work at https://github.com/acdvorak/named-pipe-wrapper) ***
 
 A simple, easy to use, strongly-typed wrapper around .NET named pipes.
 
@@ -8,10 +10,10 @@ Available as a [NuGet package](https://www.nuget.org/packages/NamedPipeWrapper/)
 
 # Features
 
-*  Create named pipe servers that can handle multiple client connections simultaneously.
-*  Send strongly-typed messages between clients and servers: any serializable .NET object can be sent over a pipe and will be automatically serialized/deserialized, including cyclical references and complex object graphs.
-*  Messages are sent and received asynchronously on a separate background thread and marshalled back to the calling thread (typically the UI).
-*  Supports large messages - up to 300 MiB.
+- Create named pipe servers that can handle multiple client connections simultaneously.
+- Send strongly-typed messages between clients and servers: any serializable .NET object can be sent over a pipe and will be automatically serialized/deserialized, including cyclical references and complex object graphs.
+- Messages are sent and received asynchronously on a separate background thread and marshalled back to the calling thread (typically the UI).
+- Supports large messages - up to 300 MiB.
 
 # Requirements
 
