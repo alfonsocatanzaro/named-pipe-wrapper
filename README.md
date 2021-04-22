@@ -17,7 +17,7 @@ Available as a [NuGet package](https://www.nuget.org/packages/NamedPipeWrapper/)
 
 # Requirements
 
-Requires .NET 4.0 full.
+Requires .NET 3.5.
 
 # Usage
 

@@ -1,0 +1,1 @@
+nuget pack -BasePath ./NamedPipeWrapper/bin/release

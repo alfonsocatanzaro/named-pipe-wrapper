@@ -14,7 +14,8 @@
         </description>
         <summary>A simple, easy to use, strongly-typed wrapper around .NET named pipes.</summary>
         <copyright>2021 Alfonso Catanzaro</copyright>
+		<license type="file">LICENSE.txt</license>
         <language>en-US</language>
-        <tags>IPC Named Pipe Pipes Wrapper Message Messages Messaging Bus Serialize Serializable</tags>
+        <tags>IPC Named Pipe Pipes Wrapper Message Messages Messaging Bus Serialize Serializable .net35</tags>
     </metadata>
 </package>
