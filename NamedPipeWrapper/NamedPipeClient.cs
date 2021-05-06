@@ -80,6 +80,8 @@ namespace NamedPipeWrapper
             AutoReconnect = true;
         }
 
+        EventWaitHandle waitHandle = new ManualResetEvent(false);
+
         /// <summary>
         /// Connects to the named pipe server asynchronously.
         /// This method returns immediately, possibly before the connection has been established.
@@ -89,8 +91,20 @@ namespace NamedPipeWrapper
             _closedExplicitly = false;
             var worker = new Worker();
             worker.Error += OnError;
+            worker.Succeeded += () => waitHandle.Set();
             worker.DoWork(ListenSync);
         }
+
+        /// <summary>
+        /// Waits for success stated ipc
+        /// </summary>
+        /// <param name="timeout">wait timeout in ms</param>
+
+        public void EnsureStarted(int timeout = 10000)
+        {
+            waitHandle.WaitOne(timeout);
+        }
+
 
         /// <summary>
         ///     Sends a message to the server over a named pipe.

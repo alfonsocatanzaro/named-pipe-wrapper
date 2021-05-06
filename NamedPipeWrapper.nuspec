@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>NamedPipeWrapper.NET35</id>
-        <version>1.4.0.1</version>
+        <version>1.4.0.2</version>
         <title>Named Pipe Wrapper - for .net Framework 3.5</title>
         <authors>Alfonso Catanzaro</authors>
         <projectUrl>https://github.com/alfonsocatanzaro/named-pipe-wrapper</projectUrl>

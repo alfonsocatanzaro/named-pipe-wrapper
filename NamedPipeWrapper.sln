@@ -14,6 +14,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{26725E73-E65B-4F93-8F4B-6918CE57671E}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
+		NamedPipeWrapper.NET35.1.4.0.1.nupkg = NamedPipeWrapper.NET35.1.4.0.1.nupkg
+		NamedPipeWrapper.NET35.1.4.0.2.nupkg = NamedPipeWrapper.NET35.1.4.0.2.nupkg
 		NamedPipeWrapper.NET35.1.4.0.nupkg = NamedPipeWrapper.NET35.1.4.0.nupkg
 		NamedPipeWrapper.nuspec = NamedPipeWrapper.nuspec
 		nugetpackcmd.txt = nugetpackcmd.txt

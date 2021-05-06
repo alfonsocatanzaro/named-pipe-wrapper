@@ -3,6 +3,7 @@ using NamedPipeWrapper.Threading;
 using System;
 using System.Collections.Generic;
 using System.IO.Pipes;
+using System.Threading;
 
 namespace NamedPipeWrapper
 {
@@ -79,6 +80,8 @@ namespace NamedPipeWrapper
             _pipeSecurity = pipeSecurity;
         }
 
+        EventWaitHandle waitHandle = new ManualResetEvent(false);
+
         /// <summary>
         /// Begins listening for client connections in a separate background thread.
         /// This method returns immediately.
@@ -88,7 +91,17 @@ namespace NamedPipeWrapper
             _shouldKeepRunning = true;
             var worker = new Worker();
             worker.Error += OnError;
+            worker.Succeeded += () => waitHandle.Set();
             worker.DoWork(ListenSync);
+        }
+
+        /// <summary>
+        /// Waits for success stated ipc
+        /// </summary>
+        /// <param name="timeout">wait timeout in ms</param>
+        public void EnsureStarted(int timeout = 10000)
+        {
+            waitHandle.WaitOne(timeout);
         }
 
         /// <summary>
