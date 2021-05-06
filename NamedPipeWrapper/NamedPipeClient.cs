@@ -100,9 +100,18 @@ namespace NamedPipeWrapper
         /// </summary>
         /// <param name="timeout">wait timeout in ms</param>
 
-        public void EnsureStarted(int timeout = 10000)
+        public void EnsureStarted(int timeout)
         {
             waitHandle.WaitOne(timeout);
+        }
+
+        /// <summary>
+        /// Waits for success stated ipc
+        /// </summary>
+
+        public void EnsureStarted()
+        {
+            waitHandle.WaitOne(10000);
         }
 
 
